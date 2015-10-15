@@ -11,3 +11,6 @@ CVS
 modules.order
 Module.symvers
 !extra/linux-devkit/*/*.d
+stamp-*
+out/
+src/
