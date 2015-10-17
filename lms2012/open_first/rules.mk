@@ -4,8 +4,10 @@
 
 ifeq ($(ARCH),X86)
 CROSS_COMPILE =
+CC=gcc-4.4
 else ifeq ($(ARCH),AM1808)
 CROSS_COMPILE = arm-none-linux-gnueabi-
+CC=gcc
 else
 $(error unknown ARCH)
 endif
@@ -55,10 +57,10 @@ INSTALL_TARGET = $(BASE)/lms2012/Linux_$(ARCH)/$(INSTALL_DIR)/$(TARGET)
 all: install
 
 %.o: ../source/%.c
-	$(CROSS_COMPILE)gcc $(CFLAGS) -c -MMD -MP -o $@ $<
+	$(CROSS_COMPILE)$(CC) $(CFLAGS) -c -MMD -MP -o $@ $<
 
 $(TARGET): $(OBJS) $(filter -lc_%,$(LIBS))
-	$(CROSS_COMPILE)gcc $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+	$(CROSS_COMPILE)$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
 
 install: $(INSTALL_TARGET)
 $(INSTALL_TARGET): $(TARGET)
@@ -131,13 +133,13 @@ PATH_CHECK_TRY = /usr/local/codesourcery/arm-2009q1/bin \
 		 $(HOME)/CodeSourcery/Sourcery_G++_Lite/bin
 
 $(PATH_CHECK):
-	@if ! which $(CROSS_COMPILE)gcc > /dev/null; then \
+	@if ! which $(CROSS_COMPILE)$(CC) > /dev/null; then \
 		for d in $(PATH_CHECK_TRY); do \
-			test -x $$d/$(CROSS_COMPILE)gcc && found=$$d; \
+			test -x $$d/$(CROSS_COMPILE)$(CC) && found=$$d; \
 		done; \
 		if test -z "$$found"; then \
 			echo "##################" >&2; \
-			echo "# Can not find $(CROSS_COMPILE)gcc, please install it." >&2; \
+			echo "# Can not find $(CROSS_COMPILE)$(CC), please install it." >&2; \
 			echo "##################" >&2; \
 			echo >&2; \
 		else \
