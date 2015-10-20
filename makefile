@@ -8,7 +8,8 @@ include mk/version.mk
 include mk/defs.mk
 include mk/download.mk
 
-.PHONY: all clean distclean help
+.PHONY: all clean distclean help doc doc.view doc.clean \
+	programs programs.clean lms2012 lms2012.clean
 
 all: stamp-uboot stamp-kernel
 
@@ -38,7 +39,32 @@ clean-kernel:
 distclean-kernel:
 	rm -rf $(target_out_kernel) stamp-kernel
 
-clean: distclean-kernel distclean-uboot
+# doc
+doc:
+	make -C $(first_dir) -f Makefile doc
+
+doc.view:
+	make -C $(first_dir) -f Makefile doc.view
+
+doc.clean:
+	make -C $(first_dir) -f Makefile doc.clean
+
+# programs
+programs:
+	make -C $(first_dir) -f Makefile programs
+
+programs.clean:
+	make -C $(first_dir) -f Makefile programs.clean
+
+# lms2012 program
+
+lms2012:
+	make -C $(first_dir) -f Makefile lms2012
+
+lms2012.clean:
+	make -C $(first_dir) -f Makefile lms2012.clean
+
+clean: distclean-kernel distclean-uboot doc.clean programs.clean lms2012.clean
 	rm -rf $(target_out)
 
 distclean: clean
@@ -60,6 +86,8 @@ help:
 	@echo ""
 	@echo "# remove source and rebuild all:"
 	@echo "  make distclean; make"
+	@echo ""
+	@make -C $(first_dir) -f Makefile help
 	@echo ""
 	@echo "# display help:"
 	@echo "  make hlep"

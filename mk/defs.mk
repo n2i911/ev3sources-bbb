@@ -13,6 +13,10 @@ src_dir := $(root_dir)/bbb/src
 uboot_dir := $(src_dir)/$(uboot_version)
 kernel_dir := $(src_dir)/$(kernel_version)
 
+# lms2012 directory
+lms_dir := $(root_dir)/lms2012
+first_dir := $(lms_dir)/open_first
+
 # output directory
 target_out := $(root_dir)/bbb/out
 target_out_uboot := $(target_out)/$(uboot_version)
