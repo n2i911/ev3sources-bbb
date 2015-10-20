@@ -1,4 +1,4 @@
-ARCH = AM1808
+ARCH = AM335X
 
 BASE = ..
 

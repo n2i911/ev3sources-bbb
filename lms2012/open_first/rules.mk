@@ -4,7 +4,7 @@
 
 ifeq ($(ARCH),X86)
 CROSS_COMPILE =
-else ifeq ($(ARCH),AM1808)
+else ifneq ($(filter $(ARCH), AM1808 AM335X),)
 CROSS_COMPILE = arm-none-linux-gnueabi-
 else
 $(error unknown ARCH)
@@ -90,6 +90,10 @@ BASE = ../..
 
 ifeq ($(ARCH),X86)
 KDIR ?= /lib/modules/`uname -r`/build
+else ifeq ($(ARCH),AM1808)
+KDIR ?= $(BASE)/../extra/linux-03.20.00.13
+KERNEL_MAKEFLAGS = ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE)
+PREPARE = kernel.prepare
 else
 KDIR ?= $(BASE)/../extra/linux-03.20.00.13
 KERNEL_MAKEFLAGS = ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE)

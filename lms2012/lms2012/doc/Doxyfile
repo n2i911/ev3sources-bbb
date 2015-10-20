@@ -585,6 +585,15 @@ INPUT                  =  "../../lms2012/Linux_AM1808/sys/settings/" \
                           "../../d_display/Linuxmod_AM1808" \
                           "../../d_usbdev/Linuxmod_AM1808" \
                           "../../d_usbhost/Linuxmod_AM1808" \
+                          "../../d_pwm/Linuxmod_AM335X" \
+                          "../../d_analog/Linuxmod_AM335X" \
+                          "../../d_ui/Linuxmod_AM335X" \
+                          "../../d_uart/Linuxmod_AM335X" \
+                          "../../d_iic/Linuxmod_AM335X" \
+                          "../../d_power/Linuxmod_AM335X" \
+                          "../../d_display/Linuxmod_AM335X" \
+                          "../../d_usbdev/Linuxmod_AM335X" \
+                          "../../d_usbhost/Linuxmod_AM335X" \
                           "../../lms2012/doc/Implementation" \
                           "../../lms2012/doc/PracticalStuff" \
                           "../../lmssrc/adk/apps.c" \
