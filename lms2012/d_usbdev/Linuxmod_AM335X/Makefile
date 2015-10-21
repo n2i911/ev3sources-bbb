@@ -1,17 +1,15 @@
 ifneq ($(KERNELRELEASE),)
 
 # kbuild part of makefile
+
 obj-m += d_usbdev.o
 
 else
 
 # normal makefile
 
-TARGET = d_usbdev.ko
+target = d_usbdev.ko
 
-CONF = Linuxmod
-ARCH = AM335X
-
-include ../../open_first/rules.mk
+include ../../../mk/module.mk
 
 endif

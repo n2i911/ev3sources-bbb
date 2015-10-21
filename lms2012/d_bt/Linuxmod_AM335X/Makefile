@@ -1,17 +1,15 @@
 ifneq ($(KERNELRELEASE),)
 
 # kbuild part of makefile
+
 obj-m += d_bt.o
 
 else
 
 # normal makefile
 
-TARGET = d_bt.ko
+target = d_bt.ko
 
-CONF = Linuxmod
-ARCH = AM335X
-
-include ../../open_first/rules.mk
+include ../../../mk/module.mk
 
 endif
