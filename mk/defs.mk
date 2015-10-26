@@ -17,6 +17,9 @@ uboot_dir := $(src_dir)/$(uboot_version)
 kernel_dir := $(src_dir)/$(kernel_version)
 export kernel_dir
 
+mk_dir := $(root_dir)/mk
+export mk_dir
+
 # lms2012 directory
 lms_dir := $(root_dir)/lms2012
 first_dir := $(lms_dir)/open_first

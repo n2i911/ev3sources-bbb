@@ -10,6 +10,6 @@ else
 
 target  = d_iic.ko
 
-include ../../../mk/module.mk
+include $(mk_dir)/module.mk
 
 endif
