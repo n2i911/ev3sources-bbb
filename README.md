@@ -7,6 +7,10 @@ See [the release announcement on BotBench][1] for more information.
 
 Port ev3sources to TI beaglebone black
 
+### prerequisite
+
+apt-get install lzop
+
 ## Things you will need
 
 * A Linux (virtual) installation.  I used Ubuntu 13.04 on VMware Workstation, but I am sure other combinations also work.   
