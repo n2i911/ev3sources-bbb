@@ -1,4 +1,4 @@
-build-kernel:
+build-kernel: $(target_out_kernel)/include/generated/utsrelease.h
 	mkdir -p $(target_out_bin)
 	mkdir -p $(target_out_kernel)
 	mkdir -p $(target_out_kernel_firmware)
@@ -18,6 +18,15 @@ build-kernel:
 	cd $(target_out_kernel_dtbs) && tar czf ../$(kernel_uts)-dtbs.tar.gz * && cd -
 	cp $(target_out_kernel)/arch/$(ARCH)/boot/$(target_kernel) $(target_out_bin)
 	cp $(target_out_kernel)/arch/$(ARCH)/boot/$(target_kernel) $(target_out_bin)/$(kernel_uts).$(target_kernel)
+
+$(target_out_kernel)/include/generated/utsrelease.h:
+	mkdir -p $(target_out_bin)
+	mkdir -p $(target_out_kernel)
+	mkdir -p $(target_out_kernel_firmware)
+	mkdir -p $(target_out_kernel_dtbs)
+	cp $(kernel_config) $(target_out_kernel)/.config
+	make -C $(kernel_dir) -j4 ARCH=$(ARCH) CROSS_COMPILE=$(CROSS) \
+		O=$(target_out_kernel) V=$(VERVOSE) modules_prepare
 
 kernel-clean:
 	make -C $(kernel_dir) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS) \
