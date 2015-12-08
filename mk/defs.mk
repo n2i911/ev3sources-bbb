@@ -2,7 +2,7 @@
 # Common
 #
 ARCH := arm
-CROSS := arm-none-linux-gnueabi-
+CROSS := arm-linux-gnueabihf-
 VERVOSE := 0
 export ARCH
 export CROSS

@@ -5,7 +5,7 @@
 ifeq ($(ARCH),X86)
 CROSS_COMPILE =
 else ifneq ($(filter $(ARCH), AM1808 AM335X),)
-CROSS_COMPILE = arm-none-linux-gnueabi-
+CROSS_COMPILE = arm-linux-gnueabihf-
 else
 $(error unknown ARCH)
 endif
