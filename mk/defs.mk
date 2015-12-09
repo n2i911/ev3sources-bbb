@@ -32,7 +32,7 @@ target_out_bin := $(target_out)/bin
 target_out_kernel_firmware := $(target_out_bin)/firmware
 target_out_kernel_dtbs := $(target_out_bin)/dtbs
 target_out_kernel_modules := $(target_out_bin)/modules
-target_out_modules := $(lms_dir)/lms2012/Linux_AM335X/sys/mod
+target_out_modules := $(target_out_bin)/lms2012/lib/modules
 export target_out_kernel
 export target_out_modules
 

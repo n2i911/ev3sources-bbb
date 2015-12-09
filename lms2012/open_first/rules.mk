@@ -33,13 +33,20 @@ ifeq ($(ARCH),X86)
 DBUS_CFLAGS := $(shell pkg-config dbus-1 --cflags)
 CFLAGS += -DLinux_X86 $(INCLUDES) $(DBUS_CFLAGS) -O0 -g3 -Wall -fPIC
 LDFLAGS += -L$(BASE)/lms2012/Linux_$(ARCH)/sys/lib
-else
+else ifeq ($(ARCH),AM1808)
 DEVKIT = $(BASE)/../extra/linux-devkit/arm-none-linux-gnueabi
 INCLUDES += -I$(DEVKIT)/usr/include/dbus-1.0
 INCLUDES += -I$(DEVKIT)/usr/lib/dbus-1.0/include
 INCLUDES += -I$(DEVKIT)/usr/include
 CFLAGS += -DPCASM $(INCLUDES) -O0 -Wall -fPIC
 LDFLAGS += -L$(BASE)/lms2012/Linux_$(ARCH)/sys/lib -L$(DEVKIT)/usr/lib
+else
+DEVKIT = $(BASE)/../extra/linux-devkit/arm-none-linux-gnueabi
+INCLUDES += -I$(DEVKIT)/usr/include/dbus-1.0
+INCLUDES += -I$(DEVKIT)/usr/lib/dbus-1.0/include
+INCLUDES += -I$(DEVKIT)/usr/include
+CFLAGS += -DPCASM $(INCLUDES) -O0 -Wall -fPIC
+LDFLAGS += -L$(BASE)/../bbb/out/bin/lms2012/usr/lib -L$(DEVKIT)/usr/lib
 endif
 
 ifeq ($(CONF),Linuxlib)
@@ -50,7 +57,16 @@ INSTALL_DIR = sys
 VPATH = sys/lib
 endif
 
+ifeq ($(ARCH),AM335X)
+ifeq ($(CONF),Linuxlib)
+INSTALL_DIR = usr/lib
+else
+INSTALL_DIR = usr/sbin
+endif
+INSTALL_TARGET = $(BASE)/../bbb/out/bin/lms2012/$(INSTALL_DIR)/$(TARGET)
+else
 INSTALL_TARGET = $(BASE)/lms2012/Linux_$(ARCH)/$(INSTALL_DIR)/$(TARGET)
+endif
 
 all: install
 
