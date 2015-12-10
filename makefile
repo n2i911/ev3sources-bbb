@@ -12,7 +12,7 @@ include mk/download.mk
 .PHONY: all clean distclean help doc doc.view doc.clean \
 	programs programs.clean lms2012 lms2012.clean stamp-modules
 
-all: stamp-uboot stamp-kernel
+all: stamp-uboot stamp-kernel stamp-modules
 
 # u-boot
 include mk/uboot.mk
@@ -67,15 +67,11 @@ lms2012.clean:
 
 # lms2012 kernel modules
 include mk/modules.mk
-stamp-modules:
-	mkdir -p $(target_out_bin)
-	mkdir -p $(target_out_kernel)
-	cp $(kernel_config) $(target_out_kernel)/.config
-	make -C $(kernel_dir) -j4 ARCH=$(ARCH) CROSS_COMPILE=$(CROSS) \
-		O=$(target_out_kernel) V=$(VERVOSE) oldconfig modules_prepare
+stamp-modules: stamp-kernel
 	make modules
+	touch $@
 
-clean: distclean-kernel distclean-uboot doc.clean programs.clean lms2012.clean
+clean: distclean-kernel distclean-uboot doc.clean programs.clean lms2012.clean modules.clean
 	rm -rf $(target_out)
 
 distclean: clean

@@ -26,7 +26,9 @@ $(target_out_kernel)/include/generated/utsrelease.h:
 	mkdir -p $(target_out_kernel_dtbs)
 	cp $(kernel_config) $(target_out_kernel)/.config
 	make -C $(kernel_dir) -j4 ARCH=$(ARCH) CROSS_COMPILE=$(CROSS) \
-		O=$(target_out_kernel) V=$(VERVOSE) modules_prepare
+		O=$(target_out_kernel) V=$(VERVOSE) oldconfig
+	make -C $(kernel_dir) -j4 ARCH=$(ARCH) CROSS_COMPILE=$(CROSS) \
+		O=$(target_out_kernel) V=$(VERVOSE) prepare
 
 kernel-clean:
 	make -C $(kernel_dir) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS) \

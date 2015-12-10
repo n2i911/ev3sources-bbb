@@ -10,6 +10,7 @@ $(all_modules):
 	make -C $(lms_dir)/$@/Linuxmod_AM335X
 
 modules.clean: $(all_modules:%=%.clean)
+	rm -rf stamp-modules
 
 $(all_modules:%=%.clean): %.clean:
 	make -C $(lms_dir)/$*/Linuxmod_AM335X clean uninstall
