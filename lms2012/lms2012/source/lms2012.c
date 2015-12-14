@@ -527,7 +527,7 @@ void      CleanLogErrors(void)
  *
  *  Example:
  *
- *  IMGDATA BC1[] = { opUI_WRITE,PUT_STRING,LCS,'L','E','G','O','\r','\n',0,opUI_WRITE,WRITE_FLUSH,opOBJECT_END };
+ *  IMGDATA BC1[] = { opUI_WRITE,PUT_STRING,LCS,'L','E','G','O','\r','\n',0,opUI_WRITE,WRITE_FFLUSH,opOBJECT_END };
  *  ExecuteByteCode(BC1,NULL,NULL);
  *
  *

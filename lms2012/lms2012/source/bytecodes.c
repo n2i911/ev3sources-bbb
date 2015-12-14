@@ -505,7 +505,7 @@ static  SUBCODE SubCodes[SUBPS][MAX_SUBCODES] =
   SC(   UI_READ_SUBP,           GET_SDCARD,             PAR8,PAR32,PAR32,                               0,0,0,0,0             ),
   SC(   UI_READ_SUBP,           GET_USBSTICK,           PAR8,PAR32,PAR32,                               0,0,0,0,0             ),
 
-  SC(   UI_WRITE_SUBP,          WRITE_FLUSH,            0,                                              0,0,0,0,0,0,0         ),
+  SC(   UI_WRITE_SUBP,          WRITE_FFLUSH,           0,                                              0,0,0,0,0,0,0         ),
   SC(   UI_WRITE_SUBP,          FLOATVALUE,             PARF,PAR8,PAR8,                                 0,0,0,0,0             ),
   SC(   UI_WRITE_SUBP,          STAMP,                  PAR8,                                           0,0,0,0,0,0,0         ),
   SC(   UI_WRITE_SUBP,          PUT_STRING,             PAR8,                                           0,0,0,0,0,0,0         ),

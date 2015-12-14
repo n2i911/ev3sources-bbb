@@ -8,7 +8,7 @@ vmthread  main
   UI_WRITE(PUT_STRING,'          DYNAMIC STRING ARRAY TEST V0.53\r\n')
   UI_WRITE(PUT_STRING,'    -------------------------------------------\r\n')
   UI_WRITE(PUT_STRING,'\r\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   CALL(Test_STRINGS_ADD)
   CALL(Test_STRINGS_DUPLICATE)
@@ -40,7 +40,7 @@ subcall   Test_INFO_ERRORTEXT
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -66,7 +66,7 @@ subcall   Test_STRINGS_ADD
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Source1)
   ARRAY(DELETE,Source2)
@@ -90,7 +90,7 @@ subcall   Test_STRINGS_DUPLICATE
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Source1)
   ARRAY(DELETE,Destination)
@@ -279,7 +279,7 @@ subcall   Test_STRINGS_VALUE_TO_STRING
   
   
   
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -311,7 +311,7 @@ subcall   Test_STRINGS_NUMBER_TO_STRING
   UI_WRITE(PUT_STRING,']\r\n')
 
   UI_WRITE(PUT_STRING,'\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -333,7 +333,7 @@ subcall   Test_STRINGS_STRIP
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Source1)
   ARRAY(DELETE,Destination)
@@ -353,7 +353,7 @@ subcall   Test_INPUT_DEVICE_GET_NAME
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -372,7 +372,7 @@ subcall   Test_INPUT_DEVICE_GET_SYMBOL
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -391,7 +391,7 @@ subcall   Test_INPUT_DEVICE_GET_MODENAME
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -410,7 +410,7 @@ subcall   Test_opUI_READ_GET_HW_VERS
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -429,7 +429,7 @@ subcall   Test_opUI_READ_GET_FW_VERS
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -448,7 +448,7 @@ subcall   Test_opUI_READ_GET_FW_BUILD
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -467,7 +467,7 @@ subcall   Test_opUI_READ_GET_OS_VERS
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -486,7 +486,7 @@ subcall   Test_opUI_READ_GET_OS_BUILD
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }
@@ -505,7 +505,7 @@ subcall   Test_opUI_READ_GET_VERSION
 
   UI_WRITE(PUT_STRING,@Destination)
   UI_WRITE(PUT_STRING,']\r\n\n')
-  UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)
 
   ARRAY(DELETE,Destination)
 }

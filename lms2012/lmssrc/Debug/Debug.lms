@@ -50,7 +50,7 @@ Loop:                                                                 //    {
 Ok:                                                                   //          }
   UI_WRITE(CODE,pDirectGlobals,MAX_COMMAND_GLOBALS)                   //          UI_WRITE(CODE,pDirectGlobals,MAX_COMMAND_GLOBALS)
   UI_WRITE(PUT_STRING,'\r\n')                                         //          UI_WRITE(PUT_STRING,'\r\n')
-  UI_WRITE(WRITE_FLUSH)                                               //          UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)                                              //          UI_WRITE(WRITE_FFLUSH)
                                                                       //
 NotStopped:                                                           //        }
 NoChange:                                                             //      }
@@ -167,7 +167,7 @@ NotTrig:                                                              //      }
   UI_WRITE(VALUE32,Ips)                                               //          UI_WRITE(VALUE32,Ips)
   UI_WRITE(PUT_STRING,' IPS]\r\n')                                    //          UI_WRITE(PUT_STRING,' IPS]\r\n')
                                                                       //
-  UI_WRITE(WRITE_FLUSH)                                               //          UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)                                              //          UI_WRITE(WRITE_FFLUSH)
   CALL(StartupScreen)                                                 //          StartupScreen()
                                                                       //
                                                                       //
@@ -207,7 +207,7 @@ subcall   Help                                                        //  void H
   UI_WRITE(PUT_STRING,'  cCODE  - direct command    \r\n')            //
   UI_WRITE(PUT_STRING,'  q      - quit to Linux     \r\n')            //
   UI_WRITE(PUT_STRING,'  -------------------------  \r\n\n')          //
-  UI_WRITE(WRITE_FLUSH)                                               //
+  UI_WRITE(WRITE_FFLUSH)                                              //
 }                                                                     //  }
                                                                       //
                                                                       //
@@ -230,7 +230,7 @@ subcall   FilenameHelp                                                //  void F
   UI_WRITE(PUT_STRING,'    rprg1                                 \r\n')//
   UI_WRITE(PUT_STRING,'                                          \r\n')//
   UI_WRITE(PUT_STRING,'  ----------------------------------------\r\n\n')//
-  UI_WRITE(WRITE_FLUSH)                                               //
+  UI_WRITE(WRITE_FFLUSH)                                              //
 }                                                                     //  }
                                                                       //
                                                                       //
@@ -253,7 +253,7 @@ subcall   DebugHelp                                                   //  void D
   UI_WRITE(PUT_STRING,'  <        - run the program              \r\n')//
   UI_WRITE(PUT_STRING,'  s        - stop and terminate           \r\n')//
   UI_WRITE(PUT_STRING,'  ----------------------------------------\r\n\n')//
-  UI_WRITE(WRITE_FLUSH)                                               //
+  UI_WRITE(WRITE_FFLUSH)                                              //
 }                                                                     //  }
                                                                       //
                                                                       //
@@ -321,7 +321,7 @@ subcall   RunUserProgram                                              //  void R
   PROGRAM_START(USER_SLOT,0,Image,0)                                  //      PROGRAM_START(USER_SLOT,0,Image,0)
   MOVE8_8(RUNNING,OldStatus)                                          //      OldStatus  =  RUNNING
                                                                       //
-  UI_WRITE(WRITE_FLUSH)                                               //      UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)                                              //      UI_WRITE(WRITE_FFLUSH)
                                                                       //
 NotStopped:                                                           //    }
 }                                                                     //  }
@@ -350,7 +350,7 @@ subcall   RunTstProgram                                               //  void R
   PROGRAM_START(USER_SLOT,0,Image,0)                                  //      PROGRAM_START(USER_SLOT,0,Image,0)
   MOVE8_8(RUNNING,OldStatus)                                          //      OldStatus  =  RUNNING
                                                                       //
-  UI_WRITE(WRITE_FLUSH)                                               //      UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)                                              //      UI_WRITE(WRITE_FFLUSH)
                                                                       //
 NotStopped:                                                           //    }
 }                                                                     //  }
@@ -424,7 +424,7 @@ subcall   Debug                                                       //  void D
   UI_WRITE(PUT_STRING,Filename)                                       //      UI_WRITE(PUT_STRING,Filename)
   UI_WRITE(PUT_STRING,'"\r\n  {\r\n')                                 //      UI_WRITE(PUT_STRING,'"\r\n  {\r\n')
                                                                       //
-  UI_WRITE(WRITE_FLUSH)                                               //      UI_WRITE(WRITE_FLUSH)
+  UI_WRITE(WRITE_FFLUSH)                                              //      UI_WRITE(WRITE_FFLUSH)
                                                                       //
   FILE(LOAD_IMAGE,USER_SLOT,Filename,ISize,Image)                     //      FILE(LOAD_IMAGE,USER_SLOT,Filename,ISize,Image)
   PROGRAM_START(USER_SLOT,0,Image,1)                                  //      PROGRAM_START(USER_SLOT,0,Image,1)

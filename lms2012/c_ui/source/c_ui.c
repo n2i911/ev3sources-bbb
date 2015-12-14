@@ -7038,7 +7038,7 @@ void      cUiRead(void)
  *  \param  (DATA8)   CMD     - \ref uiwritesubcode
  *
  *\n
- *  - CMD = WRITE_FLUSH
+ *  - CMD = WRITE_FFLUSH
  *
  *\n
  *  - CMD = FLOATVALUE
@@ -7137,7 +7137,7 @@ void      cUiWrite(void)
   switch (Cmd)
   { // Function
 
-    case WRITE_FLUSH :
+    case WRITE_FFLUSH :
     {
       cUiFlush();
       DspStat  =  NOBREAK;

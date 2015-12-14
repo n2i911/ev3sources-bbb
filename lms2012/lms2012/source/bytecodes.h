@@ -507,7 +507,7 @@ UI_READ_SUBCODE;
 
 typedef   enum
 {
-  WRITE_FLUSH   = 1,
+  WRITE_FFLUSH  = 1,
   FLOATVALUE    = 2,
   STAMP         = 3,
   PUT_STRING    = 8,
