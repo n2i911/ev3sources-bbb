@@ -12,6 +12,18 @@ default: help
 include rules.mk
 
 #
+# ev3test program.
+#
+
+ev3test:
+	$(MAKE) -C $(BASE)/ev3test/Linux_$(ARCH)
+
+ev3test.clean: $(LIBS:%=%.clean)
+	$(MAKE) -C $(BASE)/ev3test/Linux_$(ARCH) clean uninstall
+
+.PHONY: ev3test ev3test.clean
+
+#
 # lms2012 program.
 #
 

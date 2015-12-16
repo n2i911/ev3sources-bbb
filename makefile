@@ -65,6 +65,14 @@ lms2012:
 lms2012.clean:
 	make -C $(first_dir) -f Makefile $@
 
+# ev3 test program for device driver
+
+ev3test:
+	make -C $(first_dir) -f Makefile $@
+
+ev3test.clean:
+	make -C $(first_dir) -f Makefile $@
+
 # lms2012 kernel modules
 include mk/modules.mk
 stamp-modules: stamp-kernel
