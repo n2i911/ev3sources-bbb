@@ -4,6 +4,7 @@ build-kernel: $(target_out_kernel)/include/generated/utsrelease.h
 	mkdir -p $(target_out_kernel_firmware)
 	mkdir -p $(target_out_kernel_dtbs)
 	cp $(kernel_config) $(target_out_kernel)/.config
+	cp $(config_dir)/kernel/dt/*  $(kernel_dir)/arch/arm/boot/dts/
 	make -C $(kernel_dir) -j4 ARCH=$(ARCH) CROSS_COMPILE=$(CROSS) \
 		O=$(target_out_kernel) V=$(VERVOSE) zImage dtbs modules
 	$(eval kernel_uts := $(shell cat $(target_out_kernel)/include/generated/utsrelease.h | awk '{print $$3}' | sed 's/\"//g' ))
