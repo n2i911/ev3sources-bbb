@@ -23,6 +23,7 @@
 		pinctrl-0 = <&user_leds_s0>;
 
 		compatible = "gpio-leds";
+		status = "disabled";
 
 		led@2 {
 			label = "beaglebone:green:usr0";
@@ -53,6 +54,83 @@
 		};
 	};
 
+	ev3_ui {
+		pinctrl-names = "default";
+		pinctrl-0 = <&user_leds_s0 &user_buttons>;
+
+		compatible = "ev3-ui";
+
+		led@2 {
+			label = "beaglebone:green:usr0";
+			gpios = <&gpio1 21 GPIO_ACTIVE_HIGH>;
+			index = <0>;
+			type = "led";
+		};
+
+		led@3 {
+			label = "beaglebone:green:usr1";
+			gpios = <&gpio1 22 GPIO_ACTIVE_HIGH>;
+			index = <1>;
+			type = "led";
+		};
+
+		led@4 {
+			label = "beaglebone:green:usr2";
+			gpios = <&gpio1 23 GPIO_ACTIVE_HIGH>;
+			index = <2>;
+			type = "led";
+		};
+
+		led@5 {
+			label = "beaglebone:green:usr3";
+			gpios = <&gpio1 24 GPIO_ACTIVE_HIGH>;
+			index = <3>;
+			type = "led";
+		};
+
+		key@1 {
+			label = "up";
+			gpios = <&gpio2 2 GPIO_ACTIVE_LOW>;
+			index = <0>;
+			type = "key";
+		};
+
+		key@2 {
+			label = "down";
+			gpios = <&gpio2 3 GPIO_ACTIVE_LOW>;
+			index = <2>;
+			type = "key";
+		};
+
+		key@3 {
+			label = "left";
+			gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
+			index = <4>;
+			type = "key";
+		};
+
+		key@4 {
+			label = "right";
+			gpios = <&gpio2 5 GPIO_ACTIVE_LOW>;
+			index = <3>;
+			type = "key";
+		};
+
+		key@5 {
+			label = "enter";
+			gpios = <&gpio1 12 GPIO_ACTIVE_LOW>;
+			index = <1>;
+			type = "key";
+		};
+
+		key@6 {
+			label = "back";
+			gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
+			index = <5>;
+			type = "key";
+		};
+	};
+
 	vmmcsd_fixed: fixedregulator@0 {
 		compatible = "regulator-fixed";
 		regulator-name = "vmmcsd_fixed";
@@ -68,9 +146,20 @@
 	user_leds_s0: user_leds_s0 {
 		pinctrl-single,pins = <
 			0x54 (PIN_OUTPUT_PULLDOWN | MUX_MODE7)	/* gpmc_a5.gpio1_21 */
-			0x58 (PIN_OUTPUT_PULLUP | MUX_MODE7)	/* gpmc_a6.gpio1_22 */
+			0x58 (PIN_OUTPUT_PULLDOWN | MUX_MODE7)	/* gpmc_a6.gpio1_22 */
 			0x5c (PIN_OUTPUT_PULLDOWN | MUX_MODE7)	/* gpmc_a7.gpio1_23 */
-			0x60 (PIN_OUTPUT_PULLUP | MUX_MODE7)	/* gpmc_a8.gpio1_24 */
+			0x60 (PIN_OUTPUT_PULLDOWN | MUX_MODE7)	/* gpmc_a8.gpio1_24 */
+		>;
+	};
+
+	user_buttons: user_buttons {
+		pinctrl-single,pins = <
+			0x90 (PIN_INPUT_PULLUP | MUX_MODE7)	/* gpmc_advn_ale.gpio2_2 */
+			0x94 (PIN_INPUT_PULLUP | MUX_MODE7)	/* gpmc_oen_ren.gpio2_3 */
+			0x98 (PIN_INPUT_PULLUP | MUX_MODE7)	/* gpmc_wen.gpio2_4 */
+			0x9c (PIN_INPUT_PULLUP | MUX_MODE7)	/* gpmc_ben0_cle.gpio2_5 */
+			0x30 (PIN_INPUT_PULLUP | MUX_MODE7)	/* gpmc_ad12.gpio1_12 */
+			0x34 (PIN_INPUT_PULLUP | MUX_MODE7)	/* gpmc_ad13.gpio1_13 */
 		>;
 	};
 
