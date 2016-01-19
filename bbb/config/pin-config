@@ -1,15 +1,23 @@
 #### user buttons (active low) ####
 
-UP      P8_7     GPIO_66(gpio2_2)    890h conf_gpmc_advn_ale
-DOWN    P8_8     GPIO_67(gpio2_3)    894h conf_gpmc_oen_ren   
-LEFT    P8_10    GPIO_68(gpio2_4)    898h conf_gpmc_wen
-RIGHT   P8_9     GPIO_69(gpio2_5)    89Ch conf_gpmc_ben0_cle
-ENTER   P8_12    GPIO_44(gpio1_12)   830h conf_gpmc_ad12
-BACK    P8_11    GPIO_45(gpio1_13)   834h conf_gpmc_ad13
+UP             P8_7       GPIO_66(gpio2_2)    890h conf_gpmc_advn_ale
+DOWN           P8_8       GPIO_67(gpio2_3)    894h conf_gpmc_oen_ren
+LEFT           P8_10      GPIO_68(gpio2_4)    898h conf_gpmc_wen
+RIGHT          P8_9       GPIO_69(gpio2_5)    89Ch conf_gpmc_ben0_cle
+ENTER          P8_12      GPIO_44(gpio1_12)   830h conf_gpmc_ad12
+BACK           P8_11      GPIO_45(gpio1_13)   834h conf_gpmc_ad13
 
 #### user leds (active high) ####
 
-DIODE0  usr0     gpio1_21            854h conf_gpmc_a5
-DIODE1  usr1     gpio1_22            858h conf_gpmc_a6
-DIODE2  usr2     gpio1_23            85Ch conf_gpmc_a7
-DIODE3  usr3     gpio1_24            860h conf_gpmc_a8
+DIODE0         usr0       gpio1_21            854h conf_gpmc_a5
+DIODE1         usr1       gpio1_22            858h conf_gpmc_a6
+DIODE2         usr2       gpio1_23            85Ch conf_gpmc_a7
+DIODE3         usr3       gpio1_24            860h conf_gpmc_a8
+
+#### i2c2 ####
+I2C2_SCL       P9_19      UART1_RTSn          97Ch conf_uart1_rtsn
+I2C2_SDA       P9_20      UART1_CTSn          978h conf_uart1_ctsn
+
+#### uart2 ####
+UART2_TXD      P9_21      SPI0_D0             954h conf_spi0_d0
+UART2_RXD      P9_22      SPI0_SCLK           950h conf_spi0_sclk
